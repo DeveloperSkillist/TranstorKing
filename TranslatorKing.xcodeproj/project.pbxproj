@@ -13,6 +13,7 @@
 		368C40E4279EA33E00D79ECA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 368C40E2279EA33E00D79ECA /* Main.storyboard */; };
 		368C40E6279EA34200D79ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 368C40E5279EA34200D79ECA /* Assets.xcassets */; };
 		368C40E9279EA34200D79ECA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 368C40E7279EA34200D79ECA /* LaunchScreen.storyboard */; };
+		368C40F2279EA4A200D79ECA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 368C40F1279EA4A200D79ECA /* .swiftlint.yml */; };
 		4228F14C978DB977279E228D /* Pods_TranslatorKing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BF655BEAF72202C8823673 /* Pods_TranslatorKing.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		368C40E5279EA34200D79ECA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		368C40E8279EA34200D79ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		368C40EA279EA34200D79ECA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		368C40F1279EA4A200D79ECA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		45BF655BEAF72202C8823673 /* Pods_TranslatorKing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TranslatorKing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B2FEBF4629E162BD3E78A2 /* Pods-TranslatorKing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslatorKing.debug.xcconfig"; path = "Target Support Files/Pods-TranslatorKing/Pods-TranslatorKing.debug.xcconfig"; sourceTree = "<group>"; };
 		CE2277B458CBE823C4A6F242 /* Pods-TranslatorKing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslatorKing.release.xcconfig"; path = "Target Support Files/Pods-TranslatorKing/Pods-TranslatorKing.release.xcconfig"; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 		368C40D0279EA33D00D79ECA = {
 			isa = PBXGroup;
 			children = (
+				368C40F1279EA4A200D79ECA /* .swiftlint.yml */,
 				368C40DB279EA33D00D79ECA /* TranslatorKing */,
 				368C40DA279EA33D00D79ECA /* Products */,
 				F2210B06A9FA7D6699A53821 /* Pods */,
@@ -88,7 +91,6 @@
 				56B2FEBF4629E162BD3E78A2 /* Pods-TranslatorKing.debug.xcconfig */,
 				CE2277B458CBE823C4A6F242 /* Pods-TranslatorKing.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -104,6 +106,7 @@
 				368C40D6279EA33D00D79ECA /* Frameworks */,
 				368C40D7279EA33D00D79ECA /* Resources */,
 				24B1F01BBD5E2A1AA392EAA0 /* [CP] Embed Pods Frameworks */,
+				368C40F0279EA47A00D79ECA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -152,6 +155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368C40F2279EA4A200D79ECA /* .swiftlint.yml in Resources */,
 				368C40E9279EA34200D79ECA /* LaunchScreen.storyboard in Resources */,
 				368C40E6279EA34200D79ECA /* Assets.xcassets in Resources */,
 				368C40E4279EA33E00D79ECA /* Main.storyboard in Resources */,
@@ -177,6 +181,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TranslatorKing/Pods-TranslatorKing-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		368C40F0279EA47A00D79ECA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n\n";
 		};
 		BF003451E1403C16485F9A50 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

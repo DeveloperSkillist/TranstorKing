@@ -1,0 +1,9 @@
+disabled_rules:
+- line_length
+- comment_spacing
+- empty_enum_arguments
+
+included:
+
+excluded:
+- Pods
