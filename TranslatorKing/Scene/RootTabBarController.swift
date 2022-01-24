@@ -22,7 +22,8 @@ private extension RootTabController {
     }
 
     func setupTabBars() {
-        let translatorViewController = UIViewController()
+        let translatorViewController = UINavigationController(rootViewController: TranslatorView())
+        //TODO: translatorViewController.bind(translatorViewModel)
         translatorViewController.tabBarItem = UITabBarItem(
             title: "translator_title".localize,
             image: UIImage(systemName: "doc.plaintext"),

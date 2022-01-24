@@ -18,3 +18,11 @@
 
 //bookmarkViewController
 "bookmark_title" = "즐겨찾기";
+
+
+
+//Model
+"Korean" = "한국어";
+"English" = "영어";
+"Japanese" = "일본어";
+"Chinese" = "중국어";
