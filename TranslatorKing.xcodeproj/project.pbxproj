@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		368C40DD279EA33D00D79ECA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C40DC279EA33D00D79ECA /* AppDelegate.swift */; };
 		368C40DF279EA33D00D79ECA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C40DE279EA33D00D79ECA /* SceneDelegate.swift */; };
-		368C40E4279EA33E00D79ECA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 368C40E2279EA33E00D79ECA /* Main.storyboard */; };
 		368C40E6279EA34200D79ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 368C40E5279EA34200D79ECA /* Assets.xcassets */; };
 		368C40E9279EA34200D79ECA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 368C40E7279EA34200D79ECA /* LaunchScreen.storyboard */; };
 		368C40F2279EA4A200D79ECA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 368C40F1279EA4A200D79ECA /* .swiftlint.yml */; };
+		368C40F4279EA66300D79ECA /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C40F3279EA66300D79ECA /* RootTabBarController.swift */; };
 		4228F14C978DB977279E228D /* Pods_TranslatorKing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BF655BEAF72202C8823673 /* Pods_TranslatorKing.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,11 +20,11 @@
 		368C40D9279EA33D00D79ECA /* TranslatorKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranslatorKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		368C40DC279EA33D00D79ECA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		368C40DE279EA33D00D79ECA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		368C40E3279EA33E00D79ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		368C40E5279EA34200D79ECA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		368C40E8279EA34200D79ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		368C40EA279EA34200D79ECA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		368C40F1279EA4A200D79ECA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		368C40F3279EA66300D79ECA /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		45BF655BEAF72202C8823673 /* Pods_TranslatorKing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TranslatorKing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B2FEBF4629E162BD3E78A2 /* Pods-TranslatorKing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslatorKing.debug.xcconfig"; path = "Target Support Files/Pods-TranslatorKing/Pods-TranslatorKing.debug.xcconfig"; sourceTree = "<group>"; };
 		CE2277B458CBE823C4A6F242 /* Pods-TranslatorKing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslatorKing.release.xcconfig"; path = "Target Support Files/Pods-TranslatorKing/Pods-TranslatorKing.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 			children = (
 				368C40DC279EA33D00D79ECA /* AppDelegate.swift */,
 				368C40DE279EA33D00D79ECA /* SceneDelegate.swift */,
-				368C40E2279EA33E00D79ECA /* Main.storyboard */,
+				368C40F3279EA66300D79ECA /* RootTabBarController.swift */,
 				368C40E5279EA34200D79ECA /* Assets.xcassets */,
 				368C40E7279EA34200D79ECA /* LaunchScreen.storyboard */,
 				368C40EA279EA34200D79ECA /* Info.plist */,
@@ -155,7 +155,6 @@
 				368C40F2279EA4A200D79ECA /* .swiftlint.yml in Resources */,
 				368C40E9279EA34200D79ECA /* LaunchScreen.storyboard in Resources */,
 				368C40E6279EA34200D79ECA /* Assets.xcassets in Resources */,
-				368C40E4279EA33E00D79ECA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368C40F4279EA66300D79ECA /* RootTabBarController.swift in Sources */,
 				368C40DD279EA33D00D79ECA /* AppDelegate.swift in Sources */,
 				368C40DF279EA33D00D79ECA /* SceneDelegate.swift in Sources */,
 			);
@@ -233,14 +233,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		368C40E2279EA33E00D79ECA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				368C40E3279EA33E00D79ECA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		368C40E7279EA34200D79ECA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
