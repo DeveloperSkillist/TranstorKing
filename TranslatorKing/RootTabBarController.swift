@@ -11,8 +11,17 @@ class RootTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBackground
+        layout()
+        setupTabBars()
+    }
+}
 
+private extension RootTabController {
+    func layout() {
+        view.backgroundColor = .systemBackground
+    }
+
+    func setupTabBars() {
         let translatorViewController = UIViewController()
         translatorViewController.tabBarItem = UITabBarItem(
             title: "번역",
