@@ -14,6 +14,7 @@
 		368C40F2279EA4A200D79ECA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 368C40F1279EA4A200D79ECA /* .swiftlint.yml */; };
 		368C40F4279EA66300D79ECA /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C40F3279EA66300D79ECA /* RootTabBarController.swift */; };
 		368C40F8279EAA9E00D79ECA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 368C40FA279EAA9E00D79ECA /* Localizable.strings */; };
+		368C40FD279EAB4700D79ECA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C40FC279EAB4700D79ECA /* String+Extension.swift */; };
 		4228F14C978DB977279E228D /* Pods_TranslatorKing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BF655BEAF72202C8823673 /* Pods_TranslatorKing.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		368C40F5279EAA6000D79ECA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		368C40F9279EAA9E00D79ECA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		368C40FB279EAAA000D79ECA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		368C40FC279EAB4700D79ECA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		45BF655BEAF72202C8823673 /* Pods_TranslatorKing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TranslatorKing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B2FEBF4629E162BD3E78A2 /* Pods-TranslatorKing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslatorKing.debug.xcconfig"; path = "Target Support Files/Pods-TranslatorKing/Pods-TranslatorKing.debug.xcconfig"; sourceTree = "<group>"; };
 		CE2277B458CBE823C4A6F242 /* Pods-TranslatorKing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslatorKing.release.xcconfig"; path = "Target Support Files/Pods-TranslatorKing/Pods-TranslatorKing.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				368C40DC279EA33D00D79ECA /* AppDelegate.swift */,
 				368C40DE279EA33D00D79ECA /* SceneDelegate.swift */,
+				368C40FE279EAB4A00D79ECA /* Extension */,
 				368C40F3279EA66300D79ECA /* RootTabBarController.swift */,
 				368C40E5279EA34200D79ECA /* Assets.xcassets */,
 				368C40E7279EA34200D79ECA /* LaunchScreen.storyboard */,
@@ -77,6 +80,14 @@
 				368C40FA279EAA9E00D79ECA /* Localizable.strings */,
 			);
 			path = TranslatorKing;
+			sourceTree = "<group>";
+		};
+		368C40FE279EAB4A00D79ECA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				368C40FC279EAB4700D79ECA /* String+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		68F82311A37E41A0F648F559 /* Frameworks */ = {
@@ -231,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368C40FD279EAB4700D79ECA /* String+Extension.swift in Sources */,
 				368C40F4279EA66300D79ECA /* RootTabBarController.swift in Sources */,
 				368C40DD279EA33D00D79ECA /* AppDelegate.swift in Sources */,
 				368C40DF279EA33D00D79ECA /* SceneDelegate.swift in Sources */,

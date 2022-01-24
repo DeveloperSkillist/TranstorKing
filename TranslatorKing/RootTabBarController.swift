@@ -24,21 +24,21 @@ private extension RootTabController {
     func setupTabBars() {
         let translatorViewController = UIViewController()
         translatorViewController.tabBarItem = UITabBarItem(
-            title: "번역",
+            title: "translator_title".localize,
             image: UIImage(systemName: "doc.plaintext"),
             selectedImage: UIImage(systemName: "doc.plaintext.fill")
         )
 
         let historyViewController = UIViewController()
         historyViewController.tabBarItem = UITabBarItem(
-            title: "기록",
+            title: "history_title".localize,
             image: UIImage(systemName: "clock"),
             selectedImage: UIImage(systemName: "clock.fill")
         )
 
         let bookmarkViewController = UIViewController()
         bookmarkViewController.tabBarItem = UITabBarItem(
-            title: "즐겨찾기",
+            title: "bookmark_title".localize,
             image: UIImage(systemName: "star"),
             selectedImage: UIImage(systemName: "star.fill")
         )

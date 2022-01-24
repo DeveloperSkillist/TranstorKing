@@ -5,3 +5,16 @@
   Created by skillist on 2022/01/24.
   
 */
+
+//translatorViewController
+"translator_title" = "번역";
+
+
+
+//historyViewController
+"history_title" = "기록";
+
+
+
+//bookmarkViewController
+"bookmark_title" = "즐겨찾기";
