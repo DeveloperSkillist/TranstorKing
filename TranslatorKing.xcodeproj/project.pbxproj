@@ -73,7 +73,7 @@
 				368C40DC279EA33D00D79ECA /* AppDelegate.swift */,
 				368C40DE279EA33D00D79ECA /* SceneDelegate.swift */,
 				368C40FE279EAB4A00D79ECA /* Extension */,
-				368C40F3279EA66300D79ECA /* RootTabBarController.swift */,
+				368C40FF279EAC0000D79ECA /* Scene */,
 				368C40E5279EA34200D79ECA /* Assets.xcassets */,
 				368C40E7279EA34200D79ECA /* LaunchScreen.storyboard */,
 				368C40EA279EA34200D79ECA /* Info.plist */,
@@ -88,6 +88,14 @@
 				368C40FC279EAB4700D79ECA /* String+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		368C40FF279EAC0000D79ECA /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				368C40F3279EA66300D79ECA /* RootTabBarController.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		68F82311A37E41A0F648F559 /* Frameworks */ = {
