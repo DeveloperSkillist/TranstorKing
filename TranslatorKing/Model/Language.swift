@@ -17,13 +17,10 @@ enum Language: String, CaseIterable, Codable {
         switch self {
         case .ko:
             return "Korean".localize
-            
         case .en:
             return "English".localize
-            
         case .ja:
             return "Japanese".localize
-            
         case .ch:
             return "Chinese".localize
         }

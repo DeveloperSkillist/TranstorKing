@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36430C8B279FDC6300271FFD /* TranslateAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36430C8A279FDC6300271FFD /* TranslateAPIModel.swift */; };
+		36430C8D279FDE8E00271FFD /* TranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36430C8C279FDE8E00271FFD /* TranslateAPI.swift */; };
+		36430C90279FE32A00271FFD /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36430C8F279FE32A00271FFD /* APIKeys.swift */; };
 		368C40DD279EA33D00D79ECA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C40DC279EA33D00D79ECA /* AppDelegate.swift */; };
 		368C40DF279EA33D00D79ECA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C40DE279EA33D00D79ECA /* SceneDelegate.swift */; };
 		368C40E6279EA34200D79ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 368C40E5279EA34200D79ECA /* Assets.xcassets */; };
@@ -21,10 +24,16 @@
 		368C4108279EC12600D79ECA /* TranslatedTextOutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C4107279EC12600D79ECA /* TranslatedTextOutputView.swift */; };
 		368C410B279EC8A700D79ECA /* SelectLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C410A279EC8A700D79ECA /* SelectLanguageView.swift */; };
 		368C410D279EC95200D79ECA /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C410C279EC95200D79ECA /* Language.swift */; };
+		368C4110279EDD2A00D79ECA /* SelectLanguageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C410F279EDD2A00D79ECA /* SelectLanguageViewModel.swift */; };
+		368C4114279EDD5A00D79ECA /* SourceTextInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C4113279EDD5A00D79ECA /* SourceTextInputViewModel.swift */; };
+		368C4117279EDD6C00D79ECA /* TranslatedTextOutputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C4116279EDD6C00D79ECA /* TranslatedTextOutputViewModel.swift */; };
 		4228F14C978DB977279E228D /* Pods_TranslatorKing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BF655BEAF72202C8823673 /* Pods_TranslatorKing.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36430C8A279FDC6300271FFD /* TranslateAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPIModel.swift; sourceTree = "<group>"; };
+		36430C8C279FDE8E00271FFD /* TranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPI.swift; sourceTree = "<group>"; };
+		36430C8F279FE32A00271FFD /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		368C40D9279EA33D00D79ECA /* TranslatorKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranslatorKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		368C40DC279EA33D00D79ECA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		368C40DE279EA33D00D79ECA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +52,9 @@
 		368C4107279EC12600D79ECA /* TranslatedTextOutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedTextOutputView.swift; sourceTree = "<group>"; };
 		368C410A279EC8A700D79ECA /* SelectLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageView.swift; sourceTree = "<group>"; };
 		368C410C279EC95200D79ECA /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		368C410F279EDD2A00D79ECA /* SelectLanguageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageViewModel.swift; sourceTree = "<group>"; };
+		368C4113279EDD5A00D79ECA /* SourceTextInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTextInputViewModel.swift; sourceTree = "<group>"; };
+		368C4116279EDD6C00D79ECA /* TranslatedTextOutputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedTextOutputViewModel.swift; sourceTree = "<group>"; };
 		45BF655BEAF72202C8823673 /* Pods_TranslatorKing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TranslatorKing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B2FEBF4629E162BD3E78A2 /* Pods-TranslatorKing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslatorKing.debug.xcconfig"; path = "Target Support Files/Pods-TranslatorKing/Pods-TranslatorKing.debug.xcconfig"; sourceTree = "<group>"; };
 		CE2277B458CBE823C4A6F242 /* Pods-TranslatorKing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslatorKing.release.xcconfig"; path = "Target Support Files/Pods-TranslatorKing/Pods-TranslatorKing.release.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +72,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36430C8E279FDE9200271FFD /* API */ = {
+			isa = PBXGroup;
+			children = (
+				36430C8C279FDE8E00271FFD /* TranslateAPI.swift */,
+				36430C8F279FE32A00271FFD /* APIKeys.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		368C40D0279EA33D00D79ECA = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +107,7 @@
 				368C40DE279EA33D00D79ECA /* SceneDelegate.swift */,
 				368C40FE279EAB4A00D79ECA /* Extension */,
 				368C410E279EC95900D79ECA /* Model */,
+				36430C8E279FDE9200271FFD /* API */,
 				368C40FF279EAC0000D79ECA /* Scene */,
 				368C40E5279EA34200D79ECA /* Assets.xcassets */,
 				368C40E7279EA34200D79ECA /* LaunchScreen.storyboard */,
@@ -125,9 +147,9 @@
 		368C4109279EC86300D79ECA /* SubView */ = {
 			isa = PBXGroup;
 			children = (
-				368C410A279EC8A700D79ECA /* SelectLanguageView.swift */,
-				368C4105279EB74800D79ECA /* SourceTextInputView.swift */,
-				368C4107279EC12600D79ECA /* TranslatedTextOutputView.swift */,
+				368C4111279EDD2F00D79ECA /* SelectLanguageView */,
+				368C4112279EDD4700D79ECA /* SourceTextInputView */,
+				368C4115279EDD6500D79ECA /* TranslatedTextOutputView */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -136,8 +158,36 @@
 			isa = PBXGroup;
 			children = (
 				368C410C279EC95200D79ECA /* Language.swift */,
+				36430C8A279FDC6300271FFD /* TranslateAPIModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		368C4111279EDD2F00D79ECA /* SelectLanguageView */ = {
+			isa = PBXGroup;
+			children = (
+				368C410A279EC8A700D79ECA /* SelectLanguageView.swift */,
+				368C410F279EDD2A00D79ECA /* SelectLanguageViewModel.swift */,
+			);
+			path = SelectLanguageView;
+			sourceTree = "<group>";
+		};
+		368C4112279EDD4700D79ECA /* SourceTextInputView */ = {
+			isa = PBXGroup;
+			children = (
+				368C4105279EB74800D79ECA /* SourceTextInputView.swift */,
+				368C4113279EDD5A00D79ECA /* SourceTextInputViewModel.swift */,
+			);
+			path = SourceTextInputView;
+			sourceTree = "<group>";
+		};
+		368C4115279EDD6500D79ECA /* TranslatedTextOutputView */ = {
+			isa = PBXGroup;
+			children = (
+				368C4107279EC12600D79ECA /* TranslatedTextOutputView.swift */,
+				368C4116279EDD6C00D79ECA /* TranslatedTextOutputViewModel.swift */,
+			);
+			path = TranslatedTextOutputView;
 			sourceTree = "<group>";
 		};
 		68F82311A37E41A0F648F559 /* Frameworks */ = {
@@ -294,9 +344,15 @@
 			files = (
 				368C40FD279EAB4700D79ECA /* String+Extension.swift in Sources */,
 				368C410B279EC8A700D79ECA /* SelectLanguageView.swift in Sources */,
+				368C4110279EDD2A00D79ECA /* SelectLanguageViewModel.swift in Sources */,
+				368C4114279EDD5A00D79ECA /* SourceTextInputViewModel.swift in Sources */,
+				36430C8D279FDE8E00271FFD /* TranslateAPI.swift in Sources */,
 				368C40F4279EA66300D79ECA /* RootTabBarController.swift in Sources */,
+				36430C90279FE32A00271FFD /* APIKeys.swift in Sources */,
 				368C4103279EAE1D00D79ECA /* TranslatorViewModel.swift in Sources */,
+				36430C8B279FDC6300271FFD /* TranslateAPIModel.swift in Sources */,
 				368C40DD279EA33D00D79ECA /* AppDelegate.swift in Sources */,
+				368C4117279EDD6C00D79ECA /* TranslatedTextOutputViewModel.swift in Sources */,
 				368C40DF279EA33D00D79ECA /* SceneDelegate.swift in Sources */,
 				368C4108279EC12600D79ECA /* TranslatedTextOutputView.swift in Sources */,
 				368C410D279EC95200D79ECA /* Language.swift in Sources */,

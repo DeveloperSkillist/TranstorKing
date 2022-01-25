@@ -7,7 +7,7 @@ PODS:
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - SnapKit (5.0.1)
-  - SwiftLint (0.45.1)
+  - SwiftLint (0.46.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.5)
@@ -31,7 +31,7 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761
+  SwiftLint: aaa29a9f649316095a9079595cb60906bd899353
 
 PODFILE CHECKSUM: 9eca6231921f99200c8ace74533c2ff3e662edc1
 

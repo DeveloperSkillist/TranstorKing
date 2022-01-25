@@ -11,6 +11,7 @@ import RxCocoa
 import SnapKit
 
 class TranslatorView: UIViewController {
+    let disposeBag = DisposeBag()
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -58,7 +59,69 @@ class TranslatorView: UIViewController {
     }
     
     func bind(_ viewModel: TranslatorViewModel) {
+        //selectLanguageView
+        selectLanguageView.bind(viewModel.selectLanguageViewModel)
         
+        viewModel.selectLanguageViewModel.sourceLanguageButtonTap
+            .flatMapFirst { _ in
+                self.presentSelectLanguageAlert()
+                    .map { $0 }
+            }
+            .bind(to: viewModel.selectLanguageViewModel.changedSourceLanguage)
+            .disposed(by: disposeBag)
+        
+        viewModel.selectLanguageViewModel.targetLanguageButtonTap
+            .flatMapFirst { _ in
+                self.presentSelectLanguageAlert()
+                    .map { $0 }
+            }
+            .bind(to: viewModel.selectLanguageViewModel.changedTargetLanguage)
+            .disposed(by: disposeBag)
+        
+        viewModel.selectLanguageViewModel.sourceLanguage
+            .asObservable()
+            .map {
+                $0
+            }
+            .bind(to: viewModel.sourceTextInputViewModel.selectedLanguage)
+            .disposed(by: disposeBag)
+        
+        viewModel.selectLanguageViewModel.targetLanguage
+            .asObservable()
+            .map {
+                $0
+            }
+            .bind(to: viewModel.translatedTextOutputViewModel.selectedLanguage)
+            .disposed(by: disposeBag)
+        
+        let inputDatas = Observable.combineLatest(
+            viewModel.selectLanguageViewModel.sourceLanguage
+                .asObservable(),
+            viewModel.selectLanguageViewModel.targetLanguage
+                .asObservable(),
+            viewModel.sourceTextInputViewModel.inputText
+        )
+        
+        let settedTranslateRequestModel = viewModel.sourceTextInputViewModel.translateButtonTap
+            .withLatestFrom(inputDatas) { ($1.0, $1.1, $1.2) }
+            .map { sourceLan, targetLan, text -> TranslateRequestModel in
+                return TranslateRequestModel(source: sourceLan.rawValue, target: targetLan.rawValue, text: text)
+            }
+        
+        settedTranslateRequestModel
+            .subscribe(onNext: {
+                TranslateAPI().requestTranslate(translateRequestModel: $0) { trannslatedText in
+                    viewModel.translatedTextOutputViewModel.translatedText
+                        .accept(trannslatedText)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        //sourceTextInputView
+        sourceTextInputView.bind(viewModel.sourceTextInputViewModel)
+        
+        //translatedTextOutputView
+        translatedTextOutputView.bind(viewModel.translatedTextOutputViewModel)
     }
     
     private func attribute() {
@@ -80,7 +143,46 @@ class TranslatorView: UIViewController {
         }
         
         stackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
             $0.width.equalToSuperview()
         }
+    }
+    
+    private func presentSelectLanguageAlert() -> Observable<Language> {
+        let selectedLanguage = PublishSubject<Language>()
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let koAction = UIAlertAction(title: "Korean".localize, style: .default) { _ in
+            selectedLanguage.onNext(.ko)
+            selectedLanguage.onCompleted()
+        }
+        alertController.addAction(koAction)
+        
+        let enAction = UIAlertAction(title: "English".localize, style: .default) { _ in
+            selectedLanguage.onNext(.en)
+            selectedLanguage.onCompleted()
+            }
+        alertController.addAction(enAction)
+        
+        let jpAction = UIAlertAction(title: "Japanese".localize, style: .default) { _ in
+            selectedLanguage.onNext(.ja)
+            selectedLanguage.onCompleted()
+        }
+        alertController.addAction(jpAction)
+        
+        let chAction = UIAlertAction(title: "Chinese".localize, style: .default) { _ in
+            selectedLanguage.onNext(.ch)
+            selectedLanguage.onCompleted()
+        }
+        alertController.addAction(chAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel".localize, style: .cancel) { _ in
+            selectedLanguage.onCompleted()
+        }
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true)
+        return selectedLanguage
     }
 }
