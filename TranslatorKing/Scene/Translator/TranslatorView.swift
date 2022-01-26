@@ -83,7 +83,10 @@ class TranslatorView: UIViewController {
             .map {
                 $0
             }
-            .bind(to: viewModel.sourceTextInputViewModel.selectedLanguage)
+            .bind(onNext: {
+                viewModel.sourceTextInputViewModel.selectedLanguage.accept($0)
+                viewModel.translatedTextOutputViewModel.isHiddenView.accept(true)
+            })
             .disposed(by: disposeBag)
         
         viewModel.selectLanguageViewModel.targetLanguage
@@ -91,7 +94,10 @@ class TranslatorView: UIViewController {
             .map {
                 $0
             }
-            .bind(to: viewModel.translatedTextOutputViewModel.selectedLanguage)
+            .bind(onNext: {
+                viewModel.translatedTextOutputViewModel.selectedLanguage.accept($0)
+                viewModel.translatedTextOutputViewModel.isHiddenView.accept(true)
+            })
             .disposed(by: disposeBag)
         
         let inputDatas = Observable.combineLatest(
@@ -117,11 +123,36 @@ class TranslatorView: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel.translatedTextOutputViewModel.translatedText
+            .withLatestFrom(inputDatas) { ($0, $1.0, $1.1, $1.2) }
+            .map { translatedText, sourceLan, targetLan, sourceText -> HistoryModel in
+                print("history")
+                return HistoryModel(sourceLanguage: sourceLan, targetLanguage: targetLan, sourceText: sourceText, targetText: translatedText)
+            }
+            .subscribe(onNext: {
+                UserDefaults.standard.history = [$0] + UserDefaults.standard.history
+            })
+            .disposed(by: disposeBag)
+        
         //sourceTextInputView
         sourceTextInputView.bind(viewModel.sourceTextInputViewModel)
+        viewModel.sourceTextInputViewModel.changedInputText
+            .map {
+                true
+            }
+            .bind(to: viewModel.translatedTextOutputViewModel.isHiddenView)
+            .disposed(by: disposeBag)
+        
+        viewModel.sourceTextInputViewModel.clearButtonTap
+            .map {
+                true
+            }
+            .bind(to: viewModel.translatedTextOutputViewModel.isHiddenView)
+            .disposed(by: disposeBag)
         
         //translatedTextOutputView
         translatedTextOutputView.bind(viewModel.translatedTextOutputViewModel)
+        
     }
     
     private func attribute() {

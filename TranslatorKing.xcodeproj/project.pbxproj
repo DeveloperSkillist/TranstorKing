@@ -10,6 +10,14 @@
 		36430C8B279FDC6300271FFD /* TranslateAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36430C8A279FDC6300271FFD /* TranslateAPIModel.swift */; };
 		36430C8D279FDE8E00271FFD /* TranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36430C8C279FDE8E00271FFD /* TranslateAPI.swift */; };
 		36430C90279FE32A00271FFD /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36430C8F279FE32A00271FFD /* APIKeys.swift */; };
+		3661E98027A0E86300D350DF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E97F27A0E86300D350DF /* HistoryView.swift */; };
+		3661E98227A0E8C500D350DF /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E98127A0E8C500D350DF /* HistoryViewModel.swift */; };
+		3661E98427A0E9A600D350DF /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E98327A0E9A600D350DF /* HistoryTableViewCell.swift */; };
+		3661E98727A0ED7800D350DF /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E98627A0ED7800D350DF /* HistoryModel.swift */; };
+		3661E98927A0F01B00D350DF /* UserDefault+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E98827A0F01B00D350DF /* UserDefault+Extension.swift */; };
+		3661E98C27A13B9600D350DF /* BookMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E98B27A13B9600D350DF /* BookMarkView.swift */; };
+		3661E98E27A13BA000D350DF /* BookMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E98D27A13BA000D350DF /* BookMarkViewModel.swift */; };
+		3661E99027A13F0F00D350DF /* BookMarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E98F27A13F0F00D350DF /* BookMarkTableViewCell.swift */; };
 		368C40DD279EA33D00D79ECA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C40DC279EA33D00D79ECA /* AppDelegate.swift */; };
 		368C40DF279EA33D00D79ECA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C40DE279EA33D00D79ECA /* SceneDelegate.swift */; };
 		368C40E6279EA34200D79ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 368C40E5279EA34200D79ECA /* Assets.xcassets */; };
@@ -34,6 +42,14 @@
 		36430C8A279FDC6300271FFD /* TranslateAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPIModel.swift; sourceTree = "<group>"; };
 		36430C8C279FDE8E00271FFD /* TranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPI.swift; sourceTree = "<group>"; };
 		36430C8F279FE32A00271FFD /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		3661E97F27A0E86300D350DF /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		3661E98127A0E8C500D350DF /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		3661E98327A0E9A600D350DF /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		3661E98627A0ED7800D350DF /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		3661E98827A0F01B00D350DF /* UserDefault+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+Extension.swift"; sourceTree = "<group>"; };
+		3661E98B27A13B9600D350DF /* BookMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkView.swift; sourceTree = "<group>"; };
+		3661E98D27A13BA000D350DF /* BookMarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkViewModel.swift; sourceTree = "<group>"; };
+		3661E98F27A13F0F00D350DF /* BookMarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkTableViewCell.swift; sourceTree = "<group>"; };
 		368C40D9279EA33D00D79ECA /* TranslatorKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranslatorKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		368C40DC279EA33D00D79ECA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		368C40DE279EA33D00D79ECA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +97,42 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		3661E97E27A0E74E00D350DF /* History */ = {
+			isa = PBXGroup;
+			children = (
+				3661E97F27A0E86300D350DF /* HistoryView.swift */,
+				3661E98127A0E8C500D350DF /* HistoryViewModel.swift */,
+				3661E98527A0EB9700D350DF /* SubView */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		3661E98527A0EB9700D350DF /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				3661E98327A0E9A600D350DF /* HistoryTableViewCell.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		3661E98A27A13B7B00D350DF /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				3661E98B27A13B9600D350DF /* BookMarkView.swift */,
+				3661E98D27A13BA000D350DF /* BookMarkViewModel.swift */,
+				3661E99127A1529000D350DF /* SubView */,
+			);
+			path = Bookmark;
+			sourceTree = "<group>";
+		};
+		3661E99127A1529000D350DF /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				3661E98F27A13F0F00D350DF /* BookMarkTableViewCell.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		368C40D0279EA33D00D79ECA = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				368C40FC279EAB4700D79ECA /* String+Extension.swift */,
+				3661E98827A0F01B00D350DF /* UserDefault+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -130,6 +183,8 @@
 			children = (
 				368C40F3279EA66300D79ECA /* RootTabBarController.swift */,
 				368C4104279EAEB500D79ECA /* Translator */,
+				3661E97E27A0E74E00D350DF /* History */,
+				3661E98A27A13B7B00D350DF /* Bookmark */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -159,6 +214,7 @@
 			children = (
 				368C410C279EC95200D79ECA /* Language.swift */,
 				36430C8A279FDC6300271FFD /* TranslateAPIModel.swift */,
+				3661E98627A0ED7800D350DF /* HistoryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -343,21 +399,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				368C40FD279EAB4700D79ECA /* String+Extension.swift in Sources */,
+				3661E98227A0E8C500D350DF /* HistoryViewModel.swift in Sources */,
 				368C410B279EC8A700D79ECA /* SelectLanguageView.swift in Sources */,
+				3661E98E27A13BA000D350DF /* BookMarkViewModel.swift in Sources */,
 				368C4110279EDD2A00D79ECA /* SelectLanguageViewModel.swift in Sources */,
 				368C4114279EDD5A00D79ECA /* SourceTextInputViewModel.swift in Sources */,
 				36430C8D279FDE8E00271FFD /* TranslateAPI.swift in Sources */,
 				368C40F4279EA66300D79ECA /* RootTabBarController.swift in Sources */,
 				36430C90279FE32A00271FFD /* APIKeys.swift in Sources */,
+				3661E98C27A13B9600D350DF /* BookMarkView.swift in Sources */,
 				368C4103279EAE1D00D79ECA /* TranslatorViewModel.swift in Sources */,
 				36430C8B279FDC6300271FFD /* TranslateAPIModel.swift in Sources */,
 				368C40DD279EA33D00D79ECA /* AppDelegate.swift in Sources */,
+				3661E98927A0F01B00D350DF /* UserDefault+Extension.swift in Sources */,
 				368C4117279EDD6C00D79ECA /* TranslatedTextOutputViewModel.swift in Sources */,
 				368C40DF279EA33D00D79ECA /* SceneDelegate.swift in Sources */,
 				368C4108279EC12600D79ECA /* TranslatedTextOutputView.swift in Sources */,
 				368C410D279EC95200D79ECA /* Language.swift in Sources */,
+				3661E98427A0E9A600D350DF /* HistoryTableViewCell.swift in Sources */,
+				3661E98727A0ED7800D350DF /* HistoryModel.swift in Sources */,
 				368C4106279EB74800D79ECA /* SourceTextInputView.swift in Sources */,
+				3661E98027A0E86300D350DF /* HistoryView.swift in Sources */,
 				368C4101279EAE0000D79ECA /* TranslatorView.swift in Sources */,
+				3661E99027A13F0F00D350DF /* BookMarkTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@ struct TranslatedTextOutputViewModel {
     let copyButtonTap = PublishRelay<Void>()
     let bookmarkButtonTap = PublishRelay<Void>()
     let translatedText = PublishRelay<String>()
+    let isHiddenView = PublishRelay<Bool>()
     
     //viewModel -> view
     let outputText: Driver<String>

@@ -15,7 +15,7 @@ struct SourceTextInputViewModel {
     //view -> viewModel
     let clearButtonTap = PublishRelay<Void>()
     let inputText = PublishRelay<String>()
-    
+    let changedInputText = PublishRelay<Void>()
     let translateButtonTap = PublishRelay<Void>()
     
     //viewModel -> view

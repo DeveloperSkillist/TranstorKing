@@ -32,18 +32,24 @@ private extension RootTabController {
             selectedImage: UIImage(systemName: "doc.plaintext.fill")
         )
 
-        let historyViewController = UIViewController()
+        let historyView = HistoryView()
+        historyView.bind(HistoryViewModel())
+        
+        let historyViewController = UINavigationController(rootViewController: historyView)
         historyViewController.tabBarItem = UITabBarItem(
             title: "history_title".localize,
             image: UIImage(systemName: "clock"),
             selectedImage: UIImage(systemName: "clock.fill")
         )
 
-        let bookmarkViewController = UIViewController()
+        let bookmarkView = BookMarkView()
+        bookmarkView.bind(BookMarkViewModel())
+        
+        let bookmarkViewController = UINavigationController(rootViewController: bookmarkView)
         bookmarkViewController.tabBarItem = UITabBarItem(
             title: "bookmark_title".localize,
-            image: UIImage(systemName: "star"),
-            selectedImage: UIImage(systemName: "star.fill")
+            image: UIImage(systemName: "square.and.arrow.down"),
+            selectedImage: UIImage(systemName: "square.and.arrow.down.fill")
         )
 
         viewControllers = [

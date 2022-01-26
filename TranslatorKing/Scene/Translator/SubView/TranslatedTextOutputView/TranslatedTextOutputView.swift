@@ -31,7 +31,7 @@ class TranslatedTextOutputView: UIView {
     
     private lazy var bookmarkButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "star"), for: .normal)
+        button.setImage(UIImage(systemName: "square.and.arrow.down"), for: .normal)
         button.tintColor = .systemGray
         return button
     }()
@@ -84,6 +84,20 @@ class TranslatedTextOutputView: UIView {
         
         bookmarkButton.rx.tap
             .bind(to: viewModel.bookmarkButtonTap)
+            .disposed(by: disposeBag)
+        
+        viewModel.isHiddenView
+            .bind(to: self.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.copyButtonTap
+            .withLatestFrom(viewModel.translatedText)
+            .map {
+                $0
+            }
+            .bind(onNext: {
+                UIPasteboard.general.string = $0
+            })
             .disposed(by: disposeBag)
     }
     

@@ -90,6 +90,11 @@ class SourceTextInputView: UIView {
             .asObservable()
             .bind(to: viewModel.translateButtonTap)
             .disposed(by: disposeBag)
+        
+        inputTextView.rx.didChange
+            .asObservable()
+            .bind(to: viewModel.changedInputText)
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
@@ -130,7 +135,7 @@ class SourceTextInputView: UIView {
         }
         
         self.snp.makeConstraints {
-            $0.height.equalTo(200)
+            $0.height.equalTo(300)
         }
     }
 }
