@@ -27,6 +27,20 @@ class HistoryTableViewCell: UITableViewCell {
         return label
     }()
     
+    private lazy var copyButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
+        button.tintColor = .systemGray
+        return button
+    }()
+    
+    private lazy var bookmarkButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "square.and.arrow.down"), for: .normal)
+        button.tintColor = .systemGray
+        return button
+    }()
+    
     private lazy var sourceTextLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .systemBackground
@@ -83,6 +97,8 @@ class HistoryTableViewCell: UITableViewCell {
         
         [
             sourceLabel,
+            copyButton,
+            bookmarkButton,
             sourceTextLabel,
             lineView,
             targetLabel,
@@ -92,12 +108,25 @@ class HistoryTableViewCell: UITableViewCell {
         }
         
         sourceLabel.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview().inset(16)
+            $0.top.leading.equalToSuperview().inset(16)
+        }
+        
+        bookmarkButton.snp.makeConstraints {
+            $0.top.bottom.equalTo(sourceLabel)
+            $0.trailing.equalToSuperview().inset(16)
+            $0.width.height.equalTo(sourceLabel.snp.height)
+        }
+        
+        copyButton.snp.makeConstraints {
+            $0.top.bottom.equalTo(sourceLabel)
+            $0.trailing.equalTo(bookmarkButton.snp.leading).offset(-8)
+            $0.width.height.equalTo(sourceLabel.snp.height)
         }
         
         sourceTextLabel.snp.makeConstraints {
             $0.top.equalTo(sourceLabel.snp.bottom).offset(8)
-            $0.leading.trailing.equalTo(sourceLabel)
+            $0.leading.equalTo(sourceLabel)
+            $0.trailing.equalTo(bookmarkButton)
         }
         
         lineView.snp.makeConstraints {
@@ -108,12 +137,14 @@ class HistoryTableViewCell: UITableViewCell {
         
         targetLabel.snp.makeConstraints {
             $0.top.equalTo(lineView.snp.bottom).offset(16)
-            $0.leading.trailing.equalTo(sourceLabel)
+            $0.leading.equalTo(sourceLabel)
+            $0.trailing.equalTo(bookmarkButton)
         }
         
         translatedTextLabel.snp.makeConstraints {
             $0.top.equalTo(targetLabel.snp.bottom).offset(8)
-            $0.leading.trailing.equalTo(sourceLabel)
+            $0.leading.equalTo(sourceLabel)
+            $0.trailing.equalTo(bookmarkButton)
             $0.bottom.equalToSuperview().inset(16)
         }
     }

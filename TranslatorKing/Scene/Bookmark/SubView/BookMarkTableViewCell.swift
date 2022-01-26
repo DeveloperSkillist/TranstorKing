@@ -28,6 +28,20 @@ class BookMarkTableViewCell: UITableViewCell {
         return label
     }()
     
+    private lazy var copyButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
+        button.tintColor = .systemGray
+        return button
+    }()
+    
+    private lazy var clearButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.tintColor = .systemGray
+        return button
+    }()
+    
     private lazy var sourceTextLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .systemBackground
@@ -84,6 +98,8 @@ class BookMarkTableViewCell: UITableViewCell {
         
         [
             sourceLabel,
+            copyButton,
+            clearButton,
             sourceTextLabel,
             lineView,
             targetLabel,
@@ -93,12 +109,25 @@ class BookMarkTableViewCell: UITableViewCell {
         }
         
         sourceLabel.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview().inset(16)
+            $0.top.leading.equalToSuperview().inset(16)
+        }
+        
+        clearButton.snp.makeConstraints {
+            $0.top.bottom.equalTo(sourceLabel)
+            $0.trailing.equalToSuperview().inset(16)
+            $0.width.height.equalTo(sourceLabel.snp.height)
+        }
+        
+        copyButton.snp.makeConstraints {
+            $0.top.bottom.equalTo(sourceLabel)
+            $0.trailing.equalTo(clearButton.snp.leading).offset(-8)
+            $0.width.height.equalTo(sourceLabel.snp.height)
         }
         
         sourceTextLabel.snp.makeConstraints {
             $0.top.equalTo(sourceLabel.snp.bottom).offset(8)
-            $0.leading.trailing.equalTo(sourceLabel)
+            $0.leading.equalTo(sourceLabel)
+            $0.trailing.equalTo(clearButton)
         }
         
         lineView.snp.makeConstraints {
@@ -109,12 +138,14 @@ class BookMarkTableViewCell: UITableViewCell {
         
         targetLabel.snp.makeConstraints {
             $0.top.equalTo(lineView.snp.bottom).offset(16)
-            $0.leading.trailing.equalTo(sourceLabel)
+            $0.leading.equalTo(sourceLabel)
+            $0.trailing.equalTo(clearButton)
         }
         
         translatedTextLabel.snp.makeConstraints {
             $0.top.equalTo(targetLabel.snp.bottom).offset(8)
-            $0.leading.trailing.equalTo(sourceLabel)
+            $0.leading.equalTo(sourceLabel)
+            $0.trailing.equalTo(clearButton)
             $0.bottom.equalToSuperview().inset(16)
         }
     }

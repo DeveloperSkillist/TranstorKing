@@ -126,7 +126,6 @@ class TranslatorView: UIViewController {
         viewModel.translatedTextOutputViewModel.translatedText
             .withLatestFrom(inputDatas) { ($0, $1.0, $1.1, $1.2) }
             .map { translatedText, sourceLan, targetLan, sourceText -> HistoryModel in
-                print("history")
                 return HistoryModel(sourceLanguage: sourceLan, targetLanguage: targetLan, sourceText: sourceText, targetText: translatedText)
             }
             .subscribe(onNext: {
@@ -153,6 +152,24 @@ class TranslatorView: UIViewController {
         //translatedTextOutputView
         translatedTextOutputView.bind(viewModel.translatedTextOutputViewModel)
         
+        let completedTranstor = Observable.combineLatest(
+            viewModel.selectLanguageViewModel.sourceLanguage
+                .asObservable(),
+            viewModel.selectLanguageViewModel.targetLanguage
+                .asObservable(),
+            viewModel.sourceTextInputViewModel.inputText,
+            viewModel.translatedTextOutputViewModel.translatedText
+        )
+        
+        viewModel.translatedTextOutputViewModel.bookmarkButtonTap
+            .withLatestFrom(completedTranstor) { ($1.0, $1.1, $1.2, $1.3) }
+            .map { sourceLan, targetLan, sourceText, translatedText -> HistoryModel in
+                return HistoryModel(sourceLanguage: sourceLan, targetLanguage: targetLan, sourceText: sourceText, targetText: translatedText)
+            }
+            .subscribe(onNext: {
+                UserDefaults.standard.bookmark = [$0] + UserDefaults.standard.bookmark
+            })
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
