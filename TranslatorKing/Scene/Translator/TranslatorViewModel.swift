@@ -14,9 +14,7 @@ struct TranslatorViewModel {
     let sourceTextInputViewModel = SourceTextInputViewModel()
     
     //view -> viewModel
-//    let newHistory: Signal<HistoryModel>
     
     init() {
-//        newHistory =
     }
 }

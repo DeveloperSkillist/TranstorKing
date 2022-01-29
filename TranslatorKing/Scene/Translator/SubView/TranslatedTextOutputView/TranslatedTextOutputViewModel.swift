@@ -20,7 +20,6 @@ struct TranslatedTextOutputViewModel {
     
     //viewModel -> view
     let outputText: Driver<String>
-//    let viewHidden
     
     init() {
         outputText = translatedText
@@ -33,8 +32,6 @@ struct TranslatedTextOutputViewModel {
                 UIPasteboard.general.string = $0
             })
             .disposed(by: disposeBag)
-        
-        //TODO: copyButton Tap
     }
     
 }
