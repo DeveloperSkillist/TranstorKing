@@ -12,8 +12,9 @@ import SnapKit
 
 class HistoryView: UIViewController {
     let disposeBag = DisposeBag()
-    var viewModel: HistoryViewModel?
+    var viewModel: HistoryViewModel?    //viewModel입니다.
     
+    //tableView
     private var tableView: UITableView = {
         var tableView = UITableView()
         tableView.backgroundColor = .secondarySystemBackground
@@ -32,6 +33,7 @@ class HistoryView: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //viewWillAppear에서 history를 새로고침
         self.viewModel?.viewWillAppear
             .accept(())
     }
@@ -39,13 +41,14 @@ class HistoryView: UIViewController {
     func bind(_ viewModel: HistoryViewModel) {
         self.viewModel = viewModel
         
+        //기본적인 cellData를 통해, tableView 구성
         viewModel.cellData
-            .drive(tableView.rx.items) {[weak self] tv, row, data in
-                guard let cell = self?.tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identify) as? HistoryTableViewCell else {
+            .drive(tableView.rx.items) { tableView, row, data in
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identify) as? HistoryTableViewCell else {
                     return UITableViewCell()
                 }
-                cell.selectionStyle = .none
-                cell.setup(historyModel: data)
+                cell.selectionStyle = .none //selection 애니메이션 삭제
+                cell.setup(historyModel: data)  //cell data 설정
                 return cell
             }
             .disposed(by: disposeBag)

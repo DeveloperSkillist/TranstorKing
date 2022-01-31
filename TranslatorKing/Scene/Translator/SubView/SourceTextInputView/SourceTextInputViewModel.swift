@@ -20,7 +20,4 @@ struct SourceTextInputViewModel {
     
     //viewModel -> view
     let selectedLanguage = PublishRelay<Language>()
-    
-    init() {
-    }
 }

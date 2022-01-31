@@ -22,8 +22,9 @@ private extension RootTabController {
     }
 
     func setupTabBars() {
+        //번역VC View
         let translatorView = TranslatorView()
-        translatorView.bind(TranslatorViewModel())
+        translatorView.bind(TranslatorViewModel())  //ViewModel 바인딩
         
         let translatorViewController = UINavigationController(rootViewController: translatorView)
         translatorViewController.tabBarItem = UITabBarItem(
@@ -32,8 +33,9 @@ private extension RootTabController {
             selectedImage: UIImage(systemName: "doc.plaintext.fill")
         )
 
+        //기록VC View
         let historyView = HistoryView()
-        historyView.bind(HistoryViewModel())
+        historyView.bind(HistoryViewModel())  //ViewModel 바인딩
         
         let historyViewController = UINavigationController(rootViewController: historyView)
         historyViewController.tabBarItem = UITabBarItem(
@@ -42,8 +44,9 @@ private extension RootTabController {
             selectedImage: UIImage(systemName: "clock.fill")
         )
 
+        //보관함VC View
         let bookmarkView = BookMarkView()
-        bookmarkView.bind(BookMarkViewModel())
+        bookmarkView.bind(BookMarkViewModel())  //ViewModel 바인딩
         
         let bookmarkViewController = UINavigationController(rootViewController: bookmarkView)
         bookmarkViewController.tabBarItem = UITabBarItem(

@@ -32,7 +32,7 @@ extension UserDefaults {
     
     func addHistory(historyModel: HistoryModel) {
         var histories = UserDefaults.standard.history
-        if let index = histories.firstIndex(of: historyModel) {
+        if let index = histories.firstIndex(of: historyModel) { //중복 제거 로직.
             histories.remove(at: index)
         }
         

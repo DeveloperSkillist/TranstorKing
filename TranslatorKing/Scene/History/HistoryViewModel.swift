@@ -9,7 +9,6 @@ import RxSwift
 import RxCocoa
 
 struct HistoryViewModel {
-    let disposeBag = DisposeBag()
     //view -> viewModel
     let viewWillAppear = PublishRelay<Void>()
     
