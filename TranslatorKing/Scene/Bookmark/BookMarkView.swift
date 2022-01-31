@@ -29,28 +29,26 @@ class BookMarkView: UIViewController {
         layout()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.viewModel?.viewWillAppear
-            .accept(())
-            
-        
-    }
-    
     func bind(_ viewModel: BookMarkViewModel) {
         self.viewModel = viewModel
         
-        viewModel.cellData
-            .drive(tableView.rx.items) {[weak self] tv, row, data in
-                guard let cell = self?.tableView.dequeueReusableCell(withIdentifier: BookMarkTableViewCell.identify) as? BookMarkTableViewCell else {
-                    return UITableViewCell()
-                }
-                cell.selectionStyle = .none
-                cell.setup(historyModel: data)
-                return cell
-            }
+        viewModel.bookmarks
+            .debug()
+            .bind(to: tableView.rx.items(dataSource: viewModel.datasource))
             .disposed(by: disposeBag)
+        
+//        Observable.merge(
+//            tableView.rx.modelDeleted(HistoryModel.self)
+//                .asObservable(),
+//            viewModel.bookMarkTableViewCellModel.deleteButtonTapped
+//        )
+//            .bind(to: viewModel.deleteBookmark)
+//            .disposed(by: disposeBag)
+        
+        tableView.rx.modelDeleted(HistoryModel.self)
+            .bind(to: viewModel.deleteBookmark)
+            .disposed(by: disposeBag)
+        
     }
     
     private func attribute() {

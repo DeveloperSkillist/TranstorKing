@@ -6,8 +6,13 @@
 //
 
 import Foundation
+import Differentiator
 
-struct HistoryModel: Codable {
+struct HistoryModel: Codable, Equatable, IdentifiableType {
+    var identity: String {
+        return sourceText + targetText
+    }
+    
     let sourceLanguage: Language
     let targetLanguage: Language
     let sourceText: String

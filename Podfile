@@ -11,5 +11,5 @@ target 'TranslatorKing' do
   pod 'SnapKit'
   pod 'SwiftLint'
   pod 'Alamofire', '~> 5.5'
-
+  pod 'RxDataSources', '~> 4.0'
 end

@@ -22,7 +22,11 @@ extension UserDefaults {
             return (try? PropertyListDecoder().decode([HistoryModel].self, from: data)) ?? []
         }
         set {
-            UserDefaults.standard.setValue(try? PropertyListEncoder().encode(newValue), forKey: historyKey)
+            var newHistorys = newValue
+            if newHistorys.count > 10 {
+                newHistorys.removeLast()
+            }
+            UserDefaults.standard.setValue(try? PropertyListEncoder().encode(newHistorys), forKey: historyKey)
         }
     }
     
@@ -40,6 +44,14 @@ extension UserDefaults {
         }
         set {
             UserDefaults.standard.setValue(try? PropertyListEncoder().encode(newValue), forKey: bookmarkKey)
+        }
+    }
+    
+    func deleteBookmark(historyModel: HistoryModel) {
+        var bookmarks = UserDefaults.standard.bookmark
+        if let index = bookmarks.firstIndex(of: historyModel) {
+            bookmarks.remove(at: index)
+            self.bookmark = bookmarks
         }
     }
 }

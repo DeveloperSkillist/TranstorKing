@@ -7,9 +7,12 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class BookMarkTableViewCell: UITableViewCell {
     static let identify = "BookMarkTableViewCell"
+    var disposeBag = DisposeBag()
+    var bookmark: HistoryModel?
     
     private var uiView: UIView = {
         let uiView = UIView()
@@ -32,6 +35,7 @@ class BookMarkTableViewCell: UITableViewCell {
         let button = UIButton()
         button.setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
         button.tintColor = .systemGray
+        button.addTarget(self, action: #selector(copyBookmark), for: .touchUpInside)
         return button
     }()
     
@@ -39,6 +43,7 @@ class BookMarkTableViewCell: UITableViewCell {
         let button = UIButton()
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
         button.tintColor = .systemGray
+        button.addTarget(self, action: #selector(deleteBookmark), for: .touchUpInside)
         return button
     }()
     
@@ -90,7 +95,7 @@ class BookMarkTableViewCell: UITableViewCell {
     
     private func layout() {
         
-        addSubview(uiView)
+        contentView.addSubview(uiView)
         uiView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
@@ -110,8 +115,9 @@ class BookMarkTableViewCell: UITableViewCell {
         
         sourceLabel.snp.makeConstraints {
             $0.top.leading.equalToSuperview().inset(16)
+            $0.trailing.equalTo(copyButton.snp.leading).offset(-16)
         }
-        
+  
         clearButton.snp.makeConstraints {
             $0.top.bottom.equalTo(sourceLabel)
             $0.trailing.equalToSuperview().inset(16)
@@ -150,10 +156,34 @@ class BookMarkTableViewCell: UITableViewCell {
         }
     }
     
-    func setup(historyModel: HistoryModel) {
-        sourceLabel.text = historyModel.sourceLanguage.title
-        sourceTextLabel.text = historyModel.sourceText
-        targetLabel.text = historyModel.targetLanguage.title
-        translatedTextLabel.text = historyModel.targetText
+    func setup(bookmark: HistoryModel) {
+        self.bookmark = bookmark
+        sourceLabel.text = bookmark.sourceLanguage.title
+        sourceTextLabel.text = bookmark.sourceText
+        targetLabel.text = bookmark.targetLanguage.title
+        translatedTextLabel.text = bookmark.targetText
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+}
+
+private extension BookMarkTableViewCell {
+    @objc func copyBookmark() {
+        guard let bookmark = bookmark else {
+            return
+        }
+        
+        UIPasteboard.general.string = bookmark.targetText
+    }
+    
+    @objc func deleteBookmark() {
+        guard let bookmark = bookmark else {
+            return
+        }
+        
+        UserDefaults.standard.deleteBookmark(historyModel: bookmark)
     }
 }

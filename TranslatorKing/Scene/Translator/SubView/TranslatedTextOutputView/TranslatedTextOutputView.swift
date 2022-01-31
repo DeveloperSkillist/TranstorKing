@@ -140,7 +140,8 @@ class TranslatedTextOutputView: UIView {
         
         translatedLabel.snp.makeConstraints {
             $0.top.equalTo(languageLabel.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().inset(16)
+//            $0.leading.equalToSuperview().inset(20)
+            $0.leading.equalTo(languageLabel)
             $0.trailing.equalTo(bookmarkButton)
             $0.bottom.equalToSuperview().inset(16)
         }

@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import RxSwift
 
 class HistoryTableViewCell: UITableViewCell {
     static let identify = "HistoryTableViewCell"
+    var disposeBag = DisposeBag()
+    var history: HistoryModel?
     
     private var uiView: UIView = {
         let uiView = UIView()
@@ -31,6 +34,7 @@ class HistoryTableViewCell: UITableViewCell {
         let button = UIButton()
         button.setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
         button.tintColor = .systemGray
+        button.addTarget(self, action: #selector(copyBookmark), for: .touchUpInside)
         return button
     }()
     
@@ -38,6 +42,7 @@ class HistoryTableViewCell: UITableViewCell {
         let button = UIButton()
         button.setImage(UIImage(systemName: "square.and.arrow.down"), for: .normal)
         button.tintColor = .systemGray
+        button.addTarget(self, action: #selector(saveBookmark), for: .touchUpInside)
         return button
     }()
     
@@ -89,7 +94,7 @@ class HistoryTableViewCell: UITableViewCell {
     
     private func layout() {
         
-        addSubview(uiView)
+        contentView.addSubview(uiView)
         uiView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
@@ -109,6 +114,7 @@ class HistoryTableViewCell: UITableViewCell {
         
         sourceLabel.snp.makeConstraints {
             $0.top.leading.equalToSuperview().inset(16)
+            $0.trailing.equalTo(copyButton.snp.leading).offset(-16)
         }
         
         bookmarkButton.snp.makeConstraints {
@@ -150,9 +156,33 @@ class HistoryTableViewCell: UITableViewCell {
     }
     
     func setup(historyModel: HistoryModel) {
+        history = historyModel
         sourceLabel.text = historyModel.sourceLanguage.title
         sourceTextLabel.text = historyModel.sourceText
         targetLabel.text = historyModel.targetLanguage.title
         translatedTextLabel.text = historyModel.targetText
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+}
+
+private extension HistoryTableViewCell {
+    @objc func copyBookmark() {
+        guard let history = history else {
+            return
+        }
+        
+        UIPasteboard.general.string = history.targetText
+    }
+    
+    @objc func saveBookmark() {
+        guard let history = history else {
+            return
+        }
+        
+        UserDefaults.standard.bookmark = [history] + UserDefaults.standard.bookmark
     }
 }

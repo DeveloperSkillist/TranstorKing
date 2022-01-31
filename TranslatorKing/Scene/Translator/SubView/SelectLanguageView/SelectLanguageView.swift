@@ -91,6 +91,19 @@ class SelectLanguageView: UIView {
         changeLanguageButton.rx.tap
             .bind(to: viewModel.changeLanguageButtonTap)
             .disposed(by: disposeBag)
+        
+        let latestLanguages = Observable.combineLatest(
+            viewModel.sourceLanguage.asObservable(),
+            viewModel.targetLanguage.asObservable()
+            )
+        
+        changeLanguageButton.rx.tap
+            .withLatestFrom(latestLanguages) { ($1.0, $1.1) }
+            .bind(onNext: { sourceLan, targetLan in
+                viewModel.changedSourceLanguage.accept(targetLan)
+                viewModel.changedTargetLanguage.accept(sourceLan)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func layout() {

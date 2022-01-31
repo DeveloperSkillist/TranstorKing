@@ -34,8 +34,6 @@ class HistoryView: UIViewController {
         
         self.viewModel?.viewWillAppear
             .accept(())
-            
-        
     }
     
     func bind(_ viewModel: HistoryViewModel) {
