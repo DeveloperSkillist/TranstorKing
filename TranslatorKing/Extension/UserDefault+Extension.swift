@@ -30,6 +30,18 @@ extension UserDefaults {
         }
     }
     
+    func addHistory(historyModel: HistoryModel) {
+        var histories = UserDefaults.standard.history
+        if let index = histories.firstIndex(of: historyModel) {
+            histories.remove(at: index)
+        }
+        
+        self.history = [historyModel] + histories
+    }
+}
+
+extension UserDefaults {
+    
     var bookmarkKey: String {
         return "bookmark"
     }
@@ -45,6 +57,15 @@ extension UserDefaults {
         set {
             UserDefaults.standard.setValue(try? PropertyListEncoder().encode(newValue), forKey: bookmarkKey)
         }
+    }
+    
+    func addBookmark(historyModel: HistoryModel) {
+        var bookmarks = UserDefaults.standard.bookmark
+        if let index = bookmarks.firstIndex(of: historyModel) {
+            bookmarks.remove(at: index)
+        }
+        
+        self.bookmark = [historyModel] + bookmarks
     }
     
     func deleteBookmark(historyModel: HistoryModel) {

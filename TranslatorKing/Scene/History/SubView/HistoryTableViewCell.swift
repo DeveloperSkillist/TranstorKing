@@ -183,6 +183,6 @@ private extension HistoryTableViewCell {
             return
         }
         
-        UserDefaults.standard.bookmark = [history] + UserDefaults.standard.bookmark
+        UserDefaults.standard.addBookmark(historyModel: history)
     }
 }

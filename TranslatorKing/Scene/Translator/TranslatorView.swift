@@ -129,7 +129,7 @@ class TranslatorView: UIViewController {
                 return HistoryModel(sourceLanguage: sourceLan, targetLanguage: targetLan, sourceText: sourceText, targetText: translatedText)
             }
             .subscribe(onNext: {
-                UserDefaults.standard.history = [$0] + UserDefaults.standard.history
+                UserDefaults.standard.addHistory(historyModel: $0)
             })
             .disposed(by: disposeBag)
         
@@ -167,7 +167,7 @@ class TranslatorView: UIViewController {
                 return HistoryModel(sourceLanguage: sourceLan, targetLanguage: targetLan, sourceText: sourceText, targetText: translatedText)
             }
             .subscribe(onNext: {
-                UserDefaults.standard.bookmark = [$0] + UserDefaults.standard.bookmark
+                UserDefaults.standard.addBookmark(historyModel: $0)
             })
             .disposed(by: disposeBag)
     }
