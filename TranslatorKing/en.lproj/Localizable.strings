@@ -7,23 +7,23 @@
 */
 
 //translatorViewController
-"translator_title" = "번역";
+"translator_title" = "Translation";
 
 
 
 //historyViewController
-"history_title" = "기록";
+"history_title" = "History";
 
 
 
 //bookmarkViewController
-"bookmark_title" = "보관함";
+"bookmark_title" = "Bookmark";
 
 
 
 //Model
-"Korean" = "한국어";
-"English" = "영어";
-"Japanese" = "일본어";
-"Chinese" = "중국어";
-"Cancel" = "취소";
+"Korean" = "Korean";
+"English" = "English";
+"Japanese" = "Japanese";
+"Chinese" = "Chinese";
+"Cancel" = "Cancel";
