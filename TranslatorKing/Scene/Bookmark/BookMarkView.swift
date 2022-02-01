@@ -37,18 +37,9 @@ class BookMarkView: UIViewController {
             .bind(to: tableView.rx.items(dataSource: viewModel.datasource))
             .disposed(by: disposeBag)
         
-//        Observable.merge(
-//            tableView.rx.modelDeleted(HistoryModel.self)
-//                .asObservable(),
-//            viewModel.bookMarkTableViewCellModel.deleteButtonTapped
-//        )
-//            .bind(to: viewModel.deleteBookmark)
-//            .disposed(by: disposeBag)
-        
         tableView.rx.modelDeleted(HistoryModel.self)
             .bind(to: viewModel.deleteBookmark)
             .disposed(by: disposeBag)
-        
     }
     
     private func attribute() {

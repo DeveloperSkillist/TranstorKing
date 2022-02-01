@@ -6,11 +6,9 @@
 //
 
 import UIKit
-import RxSwift
 
 class HistoryTableViewCell: UITableViewCell {
-    static let identify = "HistoryTableViewCell"
-    var disposeBag = DisposeBag()
+    static let identify = "HistoryTableViewCell"    //오타 방지를 위한, cell identify 상수
     var history: HistoryModel?
     
     private var uiView: UIView = {
@@ -161,11 +159,6 @@ class HistoryTableViewCell: UITableViewCell {
         sourceTextLabel.text = historyModel.sourceText
         targetLabel.text = historyModel.targetLanguage.title
         translatedTextLabel.text = historyModel.targetText
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        disposeBag = DisposeBag()
     }
 }
 

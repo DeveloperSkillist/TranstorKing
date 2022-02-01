@@ -15,7 +15,6 @@ struct SelectLanguageViewModel {
     //view -> viewModel
     var sourceLanguageButtonTap = PublishRelay<Void>()
     var targetLanguageButtonTap = PublishRelay<Void>()
-    var changeLanguageButtonTap = PublishRelay<Void>()
     
     var changedSourceLanguage = PublishRelay<Language>()
     var changedTargetLanguage = PublishRelay<Language>()

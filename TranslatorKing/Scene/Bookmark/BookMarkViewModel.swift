@@ -13,7 +13,6 @@ typealias BookmarkSectionModel = AnimatableSectionModel<Int, HistoryModel>
 
 struct BookMarkViewModel {
     let disposeBag = DisposeBag()
-//    lazy var bookMarkTableViewCellModel = BookMarkTableViewCellModel()
     
     //view -> viewModel
     let deleteBookmark = PublishRelay<HistoryModel>()
@@ -23,11 +22,12 @@ struct BookMarkViewModel {
     let datasource: RxTableViewSectionedAnimatedDataSource<BookmarkSectionModel> = {
         let dataSource = RxTableViewSectionedAnimatedDataSource<BookmarkSectionModel>(configureCell: {
             (dataSource, tableView, indexPath, bookmark) -> UITableViewCell in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: BookMarkTableViewCell.identify) as? BookMarkTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: BookMarkTableViewCell.identify
+            ) as? BookMarkTableViewCell else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-//            cell.bind(bookMarkTableViewCellModel)
             cell.setup(bookmark: bookmark)
             return cell
         })

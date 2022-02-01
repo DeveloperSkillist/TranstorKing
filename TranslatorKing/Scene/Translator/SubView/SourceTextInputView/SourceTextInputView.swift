@@ -8,10 +8,11 @@
 import UIKit
 import SnapKit
 import RxSwift
-import RxRelay
+import RxCocoa
 
 class SourceTextInputView: UIView {
     let disposeBag = DisposeBag()
+    var viewModel: SourceTextInputViewModel?
     
     private lazy var languageLabel: UILabel = {
         let label = UILabel()
@@ -50,6 +51,8 @@ class SourceTextInputView: UIView {
     }
     
     func bind(_ viewModel: SourceTextInputViewModel) {
+        self.viewModel = viewModel
+        
         //selected
         viewModel.selectedLanguage
             .map {
@@ -84,11 +87,6 @@ class SourceTextInputView: UIView {
             }
             .distinctUntilChanged()
             .bind(to: viewModel.inputText)
-            .disposed(by: disposeBag)
-        
-        inputTextView.rx.didEndEditing
-            .asObservable()
-            .bind(to: viewModel.translateButtonTap)
             .disposed(by: disposeBag)
         
         inputTextView.rx.didChange
@@ -142,11 +140,17 @@ class SourceTextInputView: UIView {
 }
 
 extension SourceTextInputView: UITextViewDelegate {
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    func textView(
+        _ textView: UITextView,
+        shouldChangeTextIn range: NSRange,
+        replacementText text: String
+    ) -> Bool {
         
         let isEnterKey = (text == "\n")
         if isEnterKey {
             endEditing(true)
+            viewModel?.translateButtonTap
+                .onNext(())
         }
         return true
     }

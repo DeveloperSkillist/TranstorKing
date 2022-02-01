@@ -88,10 +88,6 @@ class SelectLanguageView: UIView {
             .bind(to: viewModel.targetLanguageButtonTap)
             .disposed(by: disposeBag)
         
-        changeLanguageButton.rx.tap
-            .bind(to: viewModel.changeLanguageButtonTap)
-            .disposed(by: disposeBag)
-        
         let latestLanguages = Observable.combineLatest(
             viewModel.sourceLanguage.asObservable(),
             viewModel.targetLanguage.asObservable()

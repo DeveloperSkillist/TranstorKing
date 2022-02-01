@@ -5,13 +5,10 @@
 //  Created by skillist on 2022/01/26.
 //
 
-import Foundation
 import UIKit
-import RxSwift
 
 class BookMarkTableViewCell: UITableViewCell {
     static let identify = "BookMarkTableViewCell"
-    var disposeBag = DisposeBag()
     var bookmark: HistoryModel?
     
     private var uiView: UIView = {
@@ -166,7 +163,6 @@ class BookMarkTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        disposeBag = DisposeBag()
     }
 }
 
