@@ -56,13 +56,6 @@ class TranslatedTextOutputView: UIView {
     }
     
     func bind(_ viewModel: TranslatedTextOutputViewModel) {
-        viewModel.translatedText
-            .map {
-                $0.isEmpty
-            }
-            .bind(to: self.rx.isHidden)
-            .disposed(by: disposeBag)
-        
         viewModel.selectedLanguage
             .map {
                 $0.title
@@ -75,6 +68,7 @@ class TranslatedTextOutputView: UIView {
                 self?.translatedLabel.rx.text
                     .onNext(text)
                 self?.translatedLabel.setNeedsLayout()
+                viewModel.isHiddenView.accept(text.isEmpty)
             })
             .disposed(by: disposeBag)
         
@@ -88,16 +82,6 @@ class TranslatedTextOutputView: UIView {
         
         viewModel.isHiddenView
             .bind(to: self.rx.isHidden)
-            .disposed(by: disposeBag)
-        
-        viewModel.copyButtonTap
-            .withLatestFrom(viewModel.translatedText)
-            .map {
-                $0
-            }
-            .bind(onNext: {
-                UIPasteboard.general.string = $0
-            })
             .disposed(by: disposeBag)
     }
     

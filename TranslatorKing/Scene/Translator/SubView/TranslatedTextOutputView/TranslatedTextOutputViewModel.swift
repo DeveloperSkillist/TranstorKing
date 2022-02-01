@@ -19,13 +19,8 @@ struct TranslatedTextOutputViewModel {
     let isHiddenView = PublishRelay<Bool>()
     
     //viewModel -> view
-    let outputText: Driver<String>
     
     init() {
-        outputText = translatedText
-            .distinctUntilChanged()
-            .asDriver(onErrorDriveWith: .empty())
-        
         copyButtonTap
             .withLatestFrom(translatedText) { $1 }
             .bind(onNext: {
@@ -33,5 +28,4 @@ struct TranslatedTextOutputViewModel {
             })
             .disposed(by: disposeBag)
     }
-    
 }
