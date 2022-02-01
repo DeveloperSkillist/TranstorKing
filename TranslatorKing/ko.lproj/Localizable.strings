@@ -9,8 +9,11 @@
 //translatorViewController
 "translator_title" = "번역";
 
+//alert
 "ok_title" = "확인";
 "network_error" = "통신 Error";
+"language_error_title" = "언어 Error";
+"language_error_message" = "번역할 언어와 번역될 언어가 동일합니다. 언어를 변경하세요.";
 
 //historyViewController
 "history_title" = "기록";

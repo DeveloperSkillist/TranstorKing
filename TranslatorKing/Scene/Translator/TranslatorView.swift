@@ -116,6 +116,12 @@ class TranslatorView: UIViewController {
         
         settedTranslateRequestModel
             .subscribe(onNext: {
+                if $0.source == $0.target {
+                    self.rx.showAlert
+                        .onNext(Alert(title: "language_error_title".localize, message: "language_error_message".localize))
+                    return
+                }
+                
                 TranslateAPI().requestTranslate(translateRequestModel: $0) { result in
                     switch result {
                     case .success(let result):
