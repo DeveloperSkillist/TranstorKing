@@ -9,7 +9,8 @@
 //translatorViewController
 "translator_title" = "번역";
 
-
+"ok_title" = "확인";
+"network_error" = "통신 Error";
 
 //historyViewController
 "history_title" = "기록";

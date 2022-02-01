@@ -9,7 +9,8 @@
 //translatorViewController
 "translator_title" = "Translation";
 
-
+"ok_title" = "OK";
+"network_error" = "Network Error";
 
 //historyViewController
 "history_title" = "History";
@@ -27,3 +28,5 @@
 "Japanese" = "Japanese";
 "Chinese" = "Chinese";
 "Cancel" = "Cancel";
+
+

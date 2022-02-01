@@ -116,9 +116,16 @@ class TranslatorView: UIViewController {
         
         settedTranslateRequestModel
             .subscribe(onNext: {
-                TranslateAPI().requestTranslate(translateRequestModel: $0) { trannslatedText in
-                    viewModel.translatedTextOutputViewModel.translatedText
-                        .accept(trannslatedText)
+                TranslateAPI().requestTranslate(translateRequestModel: $0) { result in
+                    switch result {
+                    case .success(let result):
+                        viewModel.translatedTextOutputViewModel.translatedText
+                            .accept(result.translatedText)
+    
+                    case .failure(let error):
+                        self.rx.showAlert
+                            .onNext(Alert(title: "network_error".localize, message: error.localizedDescription))
+                    }
                 }
             })
             .disposed(by: disposeBag)
@@ -232,5 +239,17 @@ class TranslatorView: UIViewController {
         
         present(alertController, animated: true)
         return selectedLanguage
+    }
+}
+
+typealias Alert = (title: String, message: String)
+extension Reactive where Base: TranslatorView {
+    var showAlert: Binder<Alert> {
+        return Binder(base) { viewController, alert in
+            let alertController = UIAlertController(title: alert.title, message: alert.message, preferredStyle: .alert)
+            let action = UIAlertAction(title: "ok_title".localize, style: .cancel)
+            alertController.addAction(action)
+            base.present(alertController, animated: true, completion: nil)
+        }
     }
 }
