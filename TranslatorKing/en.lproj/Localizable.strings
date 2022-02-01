@@ -11,7 +11,7 @@
 
 //alert
 "ok_title" = "OK";
-"network_error" = "Network Error";
+"network_error_title" = "Network Error";
 "language_error_title" = "Language Error";
 "language_error_message" = "The source language and target language are the same. Change the source language or target language.";
 
@@ -26,11 +26,11 @@
 
 
 
-//Model
-"Korean" = "Korean";
-"English" = "English";
-"Japanese" = "Japanese";
-"Chinese" = "Chinese";
-"Cancel" = "Cancel";
+//Language Model
+"korean" = "Korean";
+"english" = "English";
+"japanese" = "Japanese";
+"chinese" = "Chinese";
+"cancel" = "Cancel";
 
 

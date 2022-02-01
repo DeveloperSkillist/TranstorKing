@@ -130,7 +130,7 @@ class TranslatorView: UIViewController {
     
                     case .failure(let error):
                         self.rx.showAlert
-                            .onNext(Alert(title: "network_error".localize, message: error.localizedDescription))
+                            .onNext(Alert(title: "network_error_title".localize, message: error.localizedDescription))
                     }
                 }
             })
@@ -214,31 +214,31 @@ class TranslatorView: UIViewController {
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let koAction = UIAlertAction(title: "Korean".localize, style: .default) { _ in
+        let koAction = UIAlertAction(title: "korean".localize, style: .default) { _ in
             selectedLanguage.onNext(.ko)
             selectedLanguage.onCompleted()
         }
         alertController.addAction(koAction)
         
-        let enAction = UIAlertAction(title: "English".localize, style: .default) { _ in
+        let enAction = UIAlertAction(title: "english".localize, style: .default) { _ in
             selectedLanguage.onNext(.en)
             selectedLanguage.onCompleted()
             }
         alertController.addAction(enAction)
         
-        let jpAction = UIAlertAction(title: "Japanese".localize, style: .default) { _ in
+        let jpAction = UIAlertAction(title: "japanese".localize, style: .default) { _ in
             selectedLanguage.onNext(.ja)
             selectedLanguage.onCompleted()
         }
         alertController.addAction(jpAction)
         
-        let chAction = UIAlertAction(title: "Chinese".localize, style: .default) { _ in
+        let chAction = UIAlertAction(title: "chinese".localize, style: .default) { _ in
             selectedLanguage.onNext(.ch)
             selectedLanguage.onCompleted()
         }
         alertController.addAction(chAction)
         
-        let cancelAction = UIAlertAction(title: "Cancel".localize, style: .cancel) { _ in
+        let cancelAction = UIAlertAction(title: "cancel".localize, style: .cancel) { _ in
             selectedLanguage.onCompleted()
         }
         alertController.addAction(cancelAction)
