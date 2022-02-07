@@ -51,6 +51,14 @@ class TranslatorView: UIViewController {
         return stackView
     }()
     
+    private lazy var indicatorView: UIActivityIndicatorView = {
+        var indicatorView = UIActivityIndicatorView()
+        indicatorView.hidesWhenStopped = true
+        indicatorView.isHidden = true
+        indicatorView.style = .large
+        return indicatorView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,7 +72,7 @@ class TranslatorView: UIViewController {
         
         viewModel.selectLanguageViewModel.sourceLanguageButtonTap
             .flatMapFirst { _ in
-                self.presentSelectLanguageAlert()
+                self.presentSelectLanguageActionSheet()
                     .map { $0 }
             }
             .bind(to: viewModel.selectLanguageViewModel.changedSourceLanguage)
@@ -72,7 +80,7 @@ class TranslatorView: UIViewController {
         
         viewModel.selectLanguageViewModel.targetLanguageButtonTap
             .flatMapFirst { _ in
-                self.presentSelectLanguageAlert()
+                self.presentSelectLanguageActionSheet()
                     .map { $0 }
             }
             .bind(to: viewModel.selectLanguageViewModel.changedTargetLanguage)
@@ -122,7 +130,9 @@ class TranslatorView: UIViewController {
                     return
                 }
                 
+                viewModel.isAPIRequesting.accept(true)
                 TranslateAPI().requestTranslate(translateRequestModel: $0) { result in
+                    viewModel.isAPIRequesting.accept(false)
                     switch result {
                     case .success(let result):
                         viewModel.translatedTextOutputViewModel.translatedText
@@ -148,14 +158,10 @@ class TranslatorView: UIViewController {
         
         //sourceTextInputView
         sourceTextInputView.bind(viewModel.sourceTextInputViewModel)
-        viewModel.sourceTextInputViewModel.changedInputText
-            .map {
-                true
-            }
-            .bind(to: viewModel.translatedTextOutputViewModel.isHiddenView)
-            .disposed(by: disposeBag)
-        
-        viewModel.sourceTextInputViewModel.clearButtonTap
+        Observable.merge(
+            viewModel.sourceTextInputViewModel.changedInputText.asObservable(),
+            viewModel.sourceTextInputViewModel.clearButtonTap.asObservable()
+        )
             .map {
                 true
             }
@@ -183,6 +189,10 @@ class TranslatorView: UIViewController {
                 UserDefaults.standard.addBookmark(historyModel: $0)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.isAPIRequesting
+            .bind(to: indicatorView.rx.isAnimating)
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
@@ -191,10 +201,19 @@ class TranslatorView: UIViewController {
     }
     
     private func layout() {
-        view.addSubview(scrollView)
+        [
+            scrollView,
+            indicatorView
+        ].forEach {
+            view.addSubview($0)
+        }
         
         scrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        indicatorView.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
         }
 
         [
@@ -209,7 +228,7 @@ class TranslatorView: UIViewController {
         }
     }
     
-    private func presentSelectLanguageAlert() -> Observable<Language> {
+    private func presentSelectLanguageActionSheet() -> Observable<Language> {
         let selectedLanguage = PublishSubject<Language>()
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

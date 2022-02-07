@@ -14,7 +14,7 @@ struct TranslatorViewModel {
     let sourceTextInputViewModel = SourceTextInputViewModel()
     
     //view -> viewModel
+    let isAPIRequesting = BehaviorRelay<Bool>(value: false)
     
-    init() {
-    }
+    //viewModel -> view
 }
