@@ -4,7 +4,14 @@ Unsplash API를 활용하여, iOS Unsplash 앱을 따라 개발한 프로젝트 
 https://skillist.tistory.com/category/iOS%20%EA%B0%9C%EB%B0%9C/%EB%B2%88%EC%97%AD%EA%B8%B0%20%EC%95%B1%28RxSwift%29<br>
 <br><br>
 
+
 # 🖼 ScreenShots
+
+|기획서|
+|:---:|
+|<img src="./ScreenShots/PrjDoc.jpg" width="50%"/>|
+
+<br><br>
 
 |번역 화면|
 |:---:|
