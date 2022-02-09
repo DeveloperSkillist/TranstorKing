@@ -193,6 +193,11 @@ class TranslatorView: UIViewController {
         viewModel.isAPIRequesting
             .bind(to: indicatorView.rx.isAnimating)
             .disposed(by: disposeBag)
+        
+        _ = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+                .subscribe(onNext: { _ in
+                    print("Resource count \(RxSwift.Resources.total)")
+                })
     }
     
     private func attribute() {
